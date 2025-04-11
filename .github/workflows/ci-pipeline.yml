@@ -1,0 +1,57 @@
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          python-version: '16'
+          cache: 'npm'
+          cache-dependency-path: package-lock.json
+      - name: Install Node.js dependencies
+        run: |
+          npm install
+          
+
+      - name: Install dependencies
+        run: |
+          npm install
+      
+      -name: run linting
+        run: |
+          npm run lint
+          continue-on-error: true
+
+      - name: Run tests
+        run: |
+          npm test
+
+      - name: Build Docker image
+        run: |
+          docker build -t secure-cicd-app:${{ github.sha }} .
+    
+      - name: Basic vulnerability scanning
+      use : aquasecurity/trivy-action@master
+        with:
+          image-ref: secure-cicd-app:${{ github.sha }}
+          format: 'table'
+          exit-code: 1
+          severity: 'HIGH,CRITICAL'
+
+      - name: Archive test results
+      use: actions/upload-artifact@v3
+      with:
+        name: test-results
+        path: |
+          junit-*.xml
+          test-*.json
+        retention-days: 5
