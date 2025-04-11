@@ -1,0 +1,30 @@
+{
+  "name": "secure-cicd-demo",
+  "version": "1.0.0",
+  "description": "A demonstration of a secure CI/CD pipeline with integrated security testing",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "test": "jest",
+    "lint": "eslint ."
+  },
+  "keywords": [
+    "devsecops",
+    "security",
+    "cicd",
+    "express"
+  ],
+  "author": "Sdiabate1337",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.3",
+    "helmet": "^5.0.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.11.0",
+    "jest": "^27.5.1",
+    "nodemon": "^2.0.15",
+    "supertest": "^6.2.2"
+  }
+}
