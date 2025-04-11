@@ -14,22 +14,18 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          python-version: '16'
+          node-version: '16'
           cache: 'npm'
           cache-dependency-path: package-lock.json
-      - name: Install Node.js dependencies
-        run: |
-          npm install
           
-
       - name: Install dependencies
         run: |
           npm install
       
-      -name: run linting
+      - name: Run linting
         run: |
           npm run lint
-          continue-on-error: true
+        continue-on-error: true
 
       - name: Run tests
         run: |
@@ -40,7 +36,7 @@ jobs:
           docker build -t secure-cicd-app:${{ github.sha }} .
     
       - name: Basic vulnerability scanning
-      use : aquasecurity/trivy-action@master
+        uses: aquasecurity/trivy-action@master
         with:
           image-ref: secure-cicd-app:${{ github.sha }}
           format: 'table'
@@ -48,10 +44,10 @@ jobs:
           severity: 'HIGH,CRITICAL'
 
       - name: Archive test results
-      use: actions/upload-artifact@v3
-      with:
-        name: test-results
-        path: |
-          junit-*.xml
-          test-*.json
-        retention-days: 5
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-results
+          path: |
+            junit-*.xml
+            test-*.json
+          retention-days: 5
