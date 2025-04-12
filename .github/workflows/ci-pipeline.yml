@@ -49,7 +49,7 @@ jobs:
             -Dsonar.testExecutionReportPaths=coverage/test-report.xml
 
       - name: OWASP Dependency-Check
-        uses: dependency-check/dependency-check-action@v2
+        uses: OWASP/dependency-check-action@main
         with:
           fail_on_high: true
           fail_on_medium: false
