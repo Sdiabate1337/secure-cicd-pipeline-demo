@@ -49,7 +49,7 @@ jobs:
             -Dsonar.testExecutionReportPaths=coverage/test-report.xml
 
       - name: OWASP Dependency-Check
-        uses: OWASP/dependency-check-action@main
+        uses: dependency-check/Dependency-Check_Action@main
         with:
           project: 'secure-cicd-demo'
           path: '.'
@@ -64,7 +64,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: dependency-check-report
-          path: reports
+          path: report
           retention-days: 5
 
       - name: Build Docker image
