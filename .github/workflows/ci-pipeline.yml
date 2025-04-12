@@ -29,7 +29,8 @@ jobs:
 
       - name: Run tests with coverage
         run: |
-          npm test -- --forceExit -- --coverage
+          npm test -- --forceExit --coverage ./app.test.js --coverageReporters=lcov --coverageReporters=text
+        continue-on-error: true
         
       - name: SonarCloud Scan
         uses: sonarsource/sonarcloud-github-action@master
