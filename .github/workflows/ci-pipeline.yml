@@ -51,9 +51,8 @@ jobs:
       - name: OWASP Dependency-Check
         uses: OWASP/dependency-check-action@main
         with:
-          fail_on_high: true
-          fail_on_medium: false
-          fail_on_low: false
+          project: 'secure-cicd-demo'
+          path: '.'
           format: 'HTML'
           out: 'report'
           args: >
