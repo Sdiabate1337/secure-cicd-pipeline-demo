@@ -39,8 +39,8 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           args: >
-            -Dsonar.projectKey=sdiabate1337
-            -Dsonar.organization=sdiabate
+            -Dsonar.projectKey=secure-cicd-pipeline-demo
+            -Dsonar.organization=Sdiabate
             -Dsonar.projectVersion=${{ github.sha }}
             -Dsonar.host.url=https://sonarcloud.io
             -Dsonar.sources=.
