@@ -150,7 +150,6 @@ jobs:
           target: 'http://localhost:3000'
           rules_file_name: 'zap-rules.tsv'
           cmd_options: '-a'
-          docker_image: 'ghcr.io/zaproxy/zaproxy:stable'
         continue-on-error: false  # Don't fail the build initially
       
       # Clean up container
