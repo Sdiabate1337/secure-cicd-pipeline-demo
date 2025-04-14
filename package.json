@@ -4,6 +4,7 @@
   "description": "A demonstration of a secure CI/CD pipeline with integrated security testing",
   "main": "app.js",
   "scripts": {
+    "preinstall": "npx npm-force-resolutions",
     "start": "node app.js",
     "dev": "nodemon app.js",
     "test": "jest",
@@ -29,12 +30,19 @@
   "dependencies": {
     "express": "^4.17.3",
     "helmet": "^5.0.2",
-    "semver": "^7.7.1"
+    "semver": "7.7.1"
   },
   "devDependencies": {
     "eslint": "^8.11.0",
     "jest": "^27.5.1",
-    "nodemon": "^2.0.15",
+    "nodemon": "^3.1.9",
+    "npm-force-resolutions": "^0.0.10",
     "supertest": "^6.2.2"
+  },
+  "resolutions": {
+    "semver": "7.7.1"
+  },
+  "overrides": {
+    "semver": "7.7.1"
   }
 }
