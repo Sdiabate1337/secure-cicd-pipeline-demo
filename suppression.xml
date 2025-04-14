@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suppressions xmlns="https://jeremylong.github.io/DependencyCheck/dependency-suppression.1.3.xsd">
   <suppress>
-    <notes>Suppressing CVE-2022-25883 and GHSA-c2qf-rxjj-qqgw temporarily while updating semver</notes>
+    <notes>Suppressing CVE-2022-25883 temporarily for semver</notes>
     <packageUrl regex="true">pkg:npm/semver@7\.0\.0</packageUrl>
     <cve>CVE-2022-25883</cve>
-    <cve>GHSA-c2qf-rxjj-qqgw</cve>
   </suppress>
 </suppressions>
