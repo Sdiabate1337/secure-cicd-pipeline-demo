@@ -9,7 +9,7 @@
     "test": "jest",
     "lint": "eslint .",
     "security:check": "npm audit",
-  "security:fix": "npm audit fix"
+    "security:fix": "npm audit fix"
   },
   "keywords": [
     "devsecops",
@@ -17,16 +17,19 @@
     "cicd",
     "express"
   ],
-    "jest": {
+  "jest": {
     "collectCoverage": true,
-    "coverageReporters": ["lcov", "text"]
+    "coverageReporters": [
+      "lcov",
+      "text"
+    ]
   },
   "author": "Sdiabate1337",
   "license": "MIT",
   "dependencies": {
     "express": "^4.17.3",
     "helmet": "^5.0.2",
-    "semver": "^7.5.4"
+    "semver": "^7.7.1"
   },
   "devDependencies": {
     "eslint": "^8.11.0",
