@@ -151,7 +151,7 @@ jobs:
           rules_file_name: 'zap-rules.tsv'
           cmd_options: '-a'
           docker_image: 'ghcr.io/zaproxy/zaproxy:stable'
-        continue-on-error: true  # Don't fail the build initially
+        continue-on-error: false  # Don't fail the build initially
       
       # Clean up container
       - name: Stop application container
